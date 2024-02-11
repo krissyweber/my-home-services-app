@@ -17,8 +17,8 @@ export default function Header() {
       <View style={styles.profileContainer}>
         <Image source={{uri:user?.imageUrl}} style={styles.userImage}/>
         <View>
-        <Text style={{color:Colors.WHITE}}>Welcome,</Text>
-        <Text style={{color:Colors.WHITE, fontSize:20}}>{user?.fullName}</Text>
+        <Text style={{color:Colors.WHITE, fontSize:17, fontFamily:'outfit'}}>Welcome,</Text>
+        <Text style={{color:Colors.WHITE, fontSize:22, fontFamily:'outfit-med'}}>{user?.fullName}</Text>
         </View>
       </View>
       <Feather name="bookmark" size={30} color="white" />
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
       backgroundColor:Colors.WHITE,
       borderRadius:8,
       width:'85%',
-      fontSize:19
+      fontSize:19,
+      fontFamily:'outfit'
     },
     searchBarContainer:{
       marginTop:15,
