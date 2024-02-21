@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import TabNavigation from './App/Navigations/TabNavigation.jsx';
 import * as SecureStore from 'expo-secure-store';
 import { useFonts } from 'expo-font';
+import 'react-native-gesture-handler';
 
 const tokenCache = {
   async getToken(key) {

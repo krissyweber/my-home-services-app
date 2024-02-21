@@ -3,13 +3,13 @@ import React from 'react';
 import Colors from '../Utils/Colors';
 import * as WebBrowser from "expo-web-browser";
 import { useOAuth } from "@clerk/clerk-expo";
-
 import { useWarmUpBrowser } from '../../../App/hooks/warmUpBrowser.jsx'; 
+
 
 WebBrowser.maybeCompleteAuthSession();
 
 export default function Login() {
-  // Call your custom useWarmUpBrowser hook
+  
   useWarmUpBrowser();
 
   const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
@@ -20,7 +20,7 @@ export default function Login() {
       if (createdSessionId) {
         setActive({ session: createdSessionId });
       } else {
-        // Use signIn or signUp for next steps such as MFA
+        
       }
     } catch (err) {
       console.error("OAuth error", err);
@@ -37,7 +37,7 @@ export default function Login() {
             Let's Find Professional Cleaning and Repair Services.
         </Text>
         <Text style={{fontSize:17, color:Colors.WHITE, textAlign:'center', marginTop:20}}>
-            Best app to find local services with professional quality
+            Best app to find local services with professional quality.
         </Text>
         <TouchableOpacity style={styles.button} onPress={onPress}>
             <Text style={{textAlign:'center', fontSize:17, color:Colors.PRIMARY}}>Let's Get Started</Text>

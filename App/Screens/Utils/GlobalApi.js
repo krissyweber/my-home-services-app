@@ -19,7 +19,70 @@ const getSlider=async()=>{
  return result;
 }
 
+const getCategory=async()=>{
+  const query = gql`
+  query GetCategory {
+    categories {
+      id
+      name
+      icon{
+        url
+      }
+    }
+    }
+  `
+  const result =await request(MASTER_URL, query)
+ return result;
+  }
+  
+ const getBusinessList=async()=>{
+  const query=gql`
+  query GetBusinessList {
+    businessLists {
+      id
+      name
+      email
+      contact
+      category {
+      name
+    }
+      address
+      about
+      images {
+      url
+      }
+  }
+  }
+  `
+  const result = await request(MASTER_URL, query)
+ return result;
+ 
+ }
+
+ const getBusinessListByCategory=async(category)=>{
+  const query=gql`
+  query GetBusinessList {
+    businessLists(where: {category: {name:"`+category+`"}}) {
+      id
+      name
+      email
+      contact
+      category {
+      name
+    }
+      address
+      about
+      images {
+      url
+      }
+  }
+  }
+  `
+  const result = await request(MASTER_URL, query)
+ return result;
+}
+
 export default{
-    getSlider
+    getSlider, getCategory, getBusinessList, getBusinessListByCategory
 }
 
