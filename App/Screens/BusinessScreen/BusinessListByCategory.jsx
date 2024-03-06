@@ -5,6 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import 'react-native-gesture-handler';
 import BusinessListItem from './BusinessListItem';
 import GlobalApi from '../Utils/GlobalApi';
+import PageHeading from '../../Components/PageHeading';
 
 export default function BusinessListByCategory() {
   const [businessList, setBusinessList] = useState([]);
@@ -27,6 +28,7 @@ export default function BusinessListByCategory() {
     };
   return (
     <View style={{padding:20, paddingTop:30}}>
+      <PageHeading title={params.category}/>
         <TouchableOpacity style={{display:'flex', flexDirection:'row',gap:10, alignItems:'center'}}
         onPress={()=>navigation.goBack()}>
 

@@ -6,7 +6,7 @@ export default function Heading({text, isViewAll=false}) {
   return (
     <View style={styles.container}>
       {isViewAll&&<Text style={styles.header}>{text}</Text>}
-      <Text>View All</Text>
+     
     </View>
   )
 }
@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
     header:{
       fontSize:20,
       fontFamily:'outfit-med',
-      marginBottom:10
+      marginBottom:10,
+      marginLeft:5
     },
     container:{
         marginTop:10,

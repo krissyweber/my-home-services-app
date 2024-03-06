@@ -5,9 +5,10 @@ import 'react-native-gesture-handler';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-const navigation=useNavigation();
+
 
 export default function BusinessListItem({business}) {
+  const navigation=useNavigation();
   return (
     <TouchableOpacity style={styles.container} onPress={()=>navigation.push('Business-details',
     { business:business })}>

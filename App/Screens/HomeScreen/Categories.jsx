@@ -24,7 +24,7 @@ export default function Categories() {
     
   return (
     <View style={{marginTop:10}}>
-      <Heading text={'Categories'} isViewAll={true}/>
+      <Heading text={'Categories'}/>
 
       <FlatList
       data={categories}
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         alignItems:'center'
   },
   iconContainer:{
-        backgroundColor:Colors.GREY,
+        backgroundColor:Colors.LIGHTGREY,
         padding:10,
         borderRadius:80
   },
