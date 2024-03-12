@@ -21,7 +21,7 @@ const getBusinessList=()=>{
 
   return (
     <View style={{marginTop:10}}>
-      <Heading text={'Recommended Businesses'}isViewAll={true}/>
+      <Heading text={'Recommended Businesses'} />
 
       <FlatList
         data={businessList}

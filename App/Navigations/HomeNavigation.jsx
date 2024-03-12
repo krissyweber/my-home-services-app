@@ -7,7 +7,9 @@ import 'react-native-gesture-handler';
 import BusinessDetails from '../Screens/BusinessDetailsScreen/BusinessDetails';
 
 const Stack = createStackNavigator();
+
 export default function HomeNavigation() {
+  
   return (
    <Stack.Navigator screenOptions={{headerShown:false}}>
     <Stack.Screen name="Home" component={HomeScreen} />

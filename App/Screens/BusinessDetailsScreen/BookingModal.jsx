@@ -1,12 +1,13 @@
 import { View, Text, TouchableOpacity, StyleSheet, KeyboardAvoidingView, ToastAndroid } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Feather} from '@expo/vector-icons';
-import Calender from 'react-native-customized-calendar';
+import CalendarPicker from 'react-native-calendar-picker';
 import Heading from '../../Components/Heading';
 import { FlatList, ScrollView, TextInput } from 'react-native-gesture-handler';
 import Colors from '../Utils/Colors';
 import GlobalApi from '../Utils/GlobalApi';
 import moment from 'moment';
+import { useUser } from '@clerk/clerk-expo';
 
 export default function BookingModal({businessId, hideModal}) {
 
@@ -44,7 +45,7 @@ const getTime=()=>{
 }
 
 const createNewBooking=()=>{
-  if(!selectedTime || selectedDate)
+  if(!selectedTime||!selectedDate)
   {
     ToastAndroid.show('Please select A date and time',ToastAndroid.LONG)
     return;
@@ -75,25 +76,31 @@ const createNewBooking=()=>{
 
     {/*Booking Calender Section*/}
 
-    <Heading text={'Select a Date'}isViewAll={true}/>
-    <View style={{marginBottom:10}}>
-      <Calender>
-      {setSelectedDate}
-      </Calender>
+    <Heading text={'Please Select a Date'}isViewAll={true}/>
+    <View style={styles.calenderContainer}>
+      <CalendarPicker
+          onDateChange={setSelectedDate}
+          width={340}
+          minDate={Date.now()}
+          todayBackgroundColor={Colors.PINK}
+          todayTextStyle={{color:Colors.WHITE}}
+          selectedDayColor={Colors.PRIMARY}
+          selectedDayTextColor={Colors.WHITE}
+        />
+
     </View>
 
     {/*Time Selection Section*/}
 
     <View style={{marginTop:5}}>
-    <Heading text={'Please Select a Time Slot'} isViewAll={true}/>
+    <Heading text={'Please Select a Time'} isViewAll={true}/>
       <FlatList
       data={timeList}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
       renderItem={({item,index})=>(
         <TouchableOpacity style={{marginRight:10}} onPress={()=>setSelectedTime(item.time)}>
-          <Text style={[selectedTime==item.time?
-          styles.timeSelected:styles.timeUnselected]}>
+          <Text style={[selectedTime==item.time?styles.timeSelected:styles.timeUnselected]}>
             {item.time}</Text>
         </TouchableOpacity>
       )}
@@ -154,6 +161,12 @@ const styles = StyleSheet.create({
     color:Colors.WHITE,
     padding:13,
     borderRadius:99,
-    elevation:3
+    elevation:3,
+  },
+  calenderContainer:{
+    backgroundColor:Colors.SHELL,
+    padding:20,
+    borderRadius:15,
   }
+
 })

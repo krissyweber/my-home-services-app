@@ -5,21 +5,24 @@ import { Feather } from '@expo/vector-icons';
 import 'react-native-gesture-handler';
 import BusinessListItem from './BusinessListItem';
 import GlobalApi from '../Utils/GlobalApi';
-import PageHeading from '../../Components/PageHeading';
+
 
 export default function BusinessListByCategory() {
+
+  const param = useRoute().params;
+  const navigation=useNavigation();
+
   const [businessList, setBusinessList] = useState([]);
-    const params = useRoute().params;
-    const navigation=useNavigation();
+    
     useEffect(()=>{
-      if (params){
+      if (param){
           getBusinessByCategory();
       }
-    },[params]);
+    },[param]);
     
 
     const getBusinessByCategory=()=>{
-      GlobalApi.getBusinessListByCategory(params.category).then(resp=>{
+      GlobalApi.getBusinessListByCategory(param.category).then(resp=>{
         setBusinessList(resp.businessLists);
       }).catch(error =>{
         console.error('Failed to fetch business list', error);
@@ -28,12 +31,12 @@ export default function BusinessListByCategory() {
     };
   return (
     <View style={{padding:20, paddingTop:30}}>
-      <PageHeading title={params.category}/>
+     
         <TouchableOpacity style={{display:'flex', flexDirection:'row',gap:10, alignItems:'center'}}
         onPress={()=>navigation.goBack()}>
 
       <Feather name="arrow-left-circle" size={24} color="black" />
-      <Text style={{fontSize:25,fontFamily:'outfit-med'}}>{params?.category}</Text>
+      <Text style={{fontSize:25,fontFamily:'outfit-med'}}>{param?.category}</Text>
     </TouchableOpacity>
    {businessList?.length>0? <FlatList
     data={businessList}

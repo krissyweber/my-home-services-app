@@ -4,5 +4,8 @@ export default{
     WHITE:'#ffffff',
     GREY:'#808080',
     LIGHTGREY:'#dcdcdc',
-    LIGHTGREEN:'#90ee90'
+    LIGHTGREEN:'#90ee90',
+    RED:'#ff4500',
+    PINK:'#db7093',
+    SHELL:'#fff5ee'
 }

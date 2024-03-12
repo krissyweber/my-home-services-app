@@ -2,10 +2,10 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { StyleSheet } from 'react-native'
 
-export default function Heading({text, isViewAll=false}) {
+export default function Heading({text}) {
   return (
     <View style={styles.container}>
-      {isViewAll&&<Text style={styles.header}>{text}</Text>}
+      <Text style={styles.header}>{text}</Text>
      
     </View>
   )

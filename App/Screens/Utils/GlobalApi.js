@@ -15,7 +15,7 @@ const getSlider=async()=>{
       }
       
   `
- const result =await request(MASTER_URL, query)
+ const result =await request(MASTER_URL, query);
  return result;
 }
 
@@ -25,18 +25,18 @@ const getCategory=async()=>{
     categories {
       id
       name
-      icon{
+      icon {
         url
       }
     }
     }
   `
-  const result =await request(MASTER_URL, query)
+  const result =await request(MASTER_URL, query);
  return result;
   }
   
  const getBusinessList=async()=>{
-  const query=gql`
+  const query = gql`
   query GetBusinessList {
     businessLists {
       id
@@ -54,13 +54,13 @@ const getCategory=async()=>{
   }
   }
   `
-  const result = await request(MASTER_URL, query)
+  const result = await request(MASTER_URL, query);
  return result;
  
  }
 
  const getBusinessListByCategory=async(category)=>{
-  const query=gql`
+  const query = gql`
   query GetBusinessList {
     businessLists(where: {category: {name:"`+category+`"}}) {
       id
@@ -78,12 +78,12 @@ const getCategory=async()=>{
   }
   }
   `
-  const result = await request(MASTER_URL, query)
+  const result = await request(MASTER_URL, query);
  return result;
 }
 
 const createBooking=async(data)=>{
-  const mutationQuery=gql`
+  const mutationQuery = gql`
   mutation createBooking {
     createBooking(
       data: {bookingStatus: Booked, business: {connect: {id: "`+data.businessId+`"}},
@@ -97,12 +97,44 @@ const createBooking=async(data)=>{
     publishManyBookings(to: PUBLISHED) {
       count
   }
+}
   `
   const result = await request(MASTER_URL, mutationQuery)
   return result;
 }
 
+const getUserBookings=async(userEmail)=>{
+  const query=gql`
+  query GetUserBookings {
+    bookings(orderBy: updatedAt_DESC, where: {userEmail: "`+userEmail+`"}) {
+      time
+      userEmail
+      userName
+      bookingStatus
+      date
+      id
+      business {
+        id
+        images {
+          url
+        }
+        address
+        contact
+        email
+        name
+        about
+        category {
+          name
+        }
+      }
+    }
+  }
+  `
+  const result = await request(MASTER_URL, query);
+  return result;
+}
+
 export default{
-    getSlider, getCategory, getBusinessList, getBusinessListByCategory, createBooking
+    getSlider, getCategory, getBusinessList, getBusinessListByCategory, createBooking, getUserBookings
 }
 
