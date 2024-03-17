@@ -12,11 +12,11 @@ export default function BusinessListSmall({business}) {
   return (
     <TouchableOpacity style={styles.container} onPress={()=>navigation.push('Business-details', { business:business })}>
       <Image source={{ uri:business?.images[0]?.url }}
-      style={styles.image}/>
+      style={styles.image} onError={(e) => console.log(e.nativeEvent.error)}/>
       <View style={styles.infoContainer}>
         <Text style={{fontSize:17, fontFamily:'outfit'}}>{business?.name}</Text>
         <Text style={{fontSize:13, fontFamily:'outfit'}}>{business?.contact}</Text>
-        <Text style={{fontSize:13, fontFamily:'outfit', padding:3, color:Colors.WHITE,backgroundColor:Colors.PRIMARY, borderRadius:3,alignSelf:'flex-start',paddingHorizontal:7}}>
+        <Text style={{fontSize:13, fontFamily:'outfit', padding:3, color:Colors.WHITE, backgroundColor:Colors.PRIMARY, borderRadius:3,alignSelf:'flex-start',paddingHorizontal:7}}>
           {business?.category.name}</Text>
       </View>
     </TouchableOpacity>

@@ -7,5 +7,6 @@ export default{
     LIGHTGREEN:'#90ee90',
     RED:'#ff4500',
     PINK:'#db7093',
-    SHELL:'#fff5ee'
+    SHELL:'#fff5ee',
+    LIGHTBLUE:'#b0c4de'
 }

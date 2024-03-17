@@ -37,21 +37,21 @@ const getCategory=async()=>{
   
  const getBusinessList=async()=>{
   const query = gql`
-  query GetBusinessList {
+  query MyBusiness {
     businessLists {
       id
-      name
       email
+      name
       contact
       category {
-      name
-    }
+        name
+      }
+      images {
+        url
+      }
       address
       about
-      images {
-      url
-      }
-  }
+    }
   }
   `
   const result = await request(MASTER_URL, query);

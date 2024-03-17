@@ -27,7 +27,7 @@ const getBusinessList=()=>{
         data={businessList}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
-        renderItem={({item,index})=>(
+        renderItem={({item})=>(
             <View style={{marginRight:10}}>
                 <BusinessListSmall business={item}/>
                 </View>

@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     marginBottom:10
   },
   sliderImage:{
-    width:150,
+    width:120,
     height:120,
     borderRadius:20,
     objectFit:'contain'

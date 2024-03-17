@@ -33,14 +33,14 @@ export default function Login() {
       style={styles.loginImage}
       />
       <View style={styles.subContainer}>
-        <Text style={{fontSize:27, color:Colors.WHITE, textAlign:'center'}}>
+        <Text style={{fontSize:27, color:Colors.WHITE, textAlign:'center', marginTop:20}}>
             Let's Find Professional Cleaning and Repair Services.
         </Text>
-        <Text style={{fontSize:17, color:Colors.WHITE, textAlign:'center', marginTop:20}}>
+        <Text style={{fontSize:20, color:Colors.WHITE, textAlign:'center', marginTop:20, fontStyle:'italic'}}>
             Best app to find local services with professional quality.
         </Text>
         <TouchableOpacity style={styles.button} onPress={onPress}>
-            <Text style={{textAlign:'center', fontSize:17, color:Colors.PRIMARY}}>Let's Get Started</Text>
+            <Text style={{textAlign:'center', fontSize:20, fontWeight:'bold'}}>Let's Get Started</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -65,9 +65,11 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 30,
     },
     button: {
-        padding: 50,
+        padding: 22,
         backgroundColor: Colors.WHITE,
         borderRadius: 99,
-        marginTop: 40,
+        marginTop: 20,
+        marginRight:70,
+        marginLeft:70
     },
 });

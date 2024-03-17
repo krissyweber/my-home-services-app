@@ -49,15 +49,15 @@ const styles = StyleSheet.create({
         alignItems:'center'
   },
   iconContainer:{
-        backgroundColor:Colors.LIGHTGREY,
-        padding:10,
+        backgroundColor:Colors.LIGHTBLUE,
+        padding:1,
         borderRadius:80
   },
     
     categoryImage:{
-        width:50,
-        height:50,
-        borderRadius:5,
+        width:75,
+        height:75,
+        borderRadius:1,
         objectFit:'contain'
       }
 })
